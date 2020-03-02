@@ -1,0 +1,21 @@
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+body {
+    font-family: helvetica;
+}
+  
+ul {
+    font-family: monospace;
+}
+
+#date {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
