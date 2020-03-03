@@ -36,8 +36,8 @@ function submitMe() {
   
   apigClient.classifyGet(params, body, additionalParams)
       .then(function(result){
-        console.log(parseFloat(data.split("$$$")[0]))
         var data = JSON.stringify(result['data'])
+        console.log(parseFloat(data.split("$$$")[0]))
         var raw = parseFloat(data.split("$$$")[0])
         raw = 25.62050323 * raw - 13.67818969
         raw = 1/(1+Math.pow(Math.E, 0-raw)) * 100
