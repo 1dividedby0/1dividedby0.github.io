@@ -7,7 +7,11 @@ var apigClient = apigClientFactory.newClient();
 // }
 
 function submitMe() {
-  var selectElement = document.getElementById('date')
+  var selectElement = document.getElementById('date');
+  var sentence1 = document.getElementById('sentence1');
+  var sentence2 = document.getElementById('sentence2');
+  var sentence3 = document.getElementById('sentence3');
+  var sentence4 = document.getElementById('sentence4');
   selectElement.innerHTML = "Checking for Bias...";
   let link = document.getElementById('textfield').value;
   var params = {
@@ -33,11 +37,16 @@ function submitMe() {
   apigClient.classifyGet(params, body, additionalParams)
       .then(function(result){
         console.log(JSON.stringify(result['data']))
-        var raw = JSON.stringify(result['data'])
+        var data = JSON.stringify(result['data'])
+        var raw = parseFloat(data.split("$$$")[0])
         raw = 25.62050323 * raw - 13.67818969
         raw = 1/(1+Math.pow(Math.E, 0-raw)) * 100
         raw = Math.round(raw)
         selectElement.innerHTML = raw
+        sentence1.innerHTML = data.split("$$$")[1].split(".")[0]
+        sentence2.innerHTML = data.split("$$$")[1].split(".")[1]
+        sentence3.innerHTML = data.split("$$$")[1].split(".")[2]
+        sentence4.innerHTML = data.split("$$$")[1].split(".")[3]
       }).catch( function(result){
         console.log(result)
         selectElement.innerHTML = result
