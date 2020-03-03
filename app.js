@@ -39,6 +39,7 @@ function submitMe() {
         console.log(JSON.stringify(result['data']))
         var data = JSON.stringify(result['data'])
         var raw = parseFloat(data.split("$$$")[0])
+        console.log(parseFloat(data.split("$$$")[0]))
         raw = 25.62050323 * raw - 13.67818969
         raw = 1/(1+Math.pow(Math.E, 0-raw)) * 100
         raw = Math.round(raw)
