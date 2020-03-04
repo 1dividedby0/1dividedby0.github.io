@@ -37,6 +37,7 @@ function submitMe() {
   apigClient.classifyGet(params, body, additionalParams)
       .then(function(result){
         var data = JSON.stringify(result['data'])
+        console.log(data.split("$$$")[0]))
         console.log(parseFloat(data.split("$$$")[0]))
         var raw = parseFloat(data.split("$$$")[0])
         raw = 25.62050323 * raw - 13.67818969
