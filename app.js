@@ -43,7 +43,7 @@ function submitMe() {
         raw = 25.62050323 * raw - 13.67818969
         raw = 1/(1+Math.pow(Math.E, 0-raw)) * 100
         raw = Math.round(raw)
-        selectElement.innerHTML = raw
+        selectElement.innerHTML = "Article Subjectivity: " + raw.toString() + "/100"
         sentence1.innerHTML = data.split("$$$")[1].split(".")[0]
         sentence2.innerHTML = data.split("$$$")[1].split(".")[1]
         sentence3.innerHTML = data.split("$$$")[1].split(".")[2]
