@@ -96,7 +96,7 @@ ul {
 #textfield {
     width:40%;
     left: 30%;
-    line-height: 27px;
+    height: 27px;
     margin-top: -100px;
     position: absolute;
     text-align: center;
