@@ -36,6 +36,7 @@ function submitMe() {
   
   apigClient.classifyGet(params, body, additionalParams)
       .then(function(result){
+        console.log(result['data'])
         var data = JSON.stringify(result['data'])
         console.log(data.split("$$$")[0].substring(1))
         console.log(parseFloat(data.split("$$$")[0]))
@@ -50,7 +51,7 @@ function submitMe() {
         sentence4.innerHTML = data.split("$$$")[1].split(".")[3]
       }).catch( function(result){
         console.log(result)
-        selectElement.innerHTML = result
+        selectElement.innerHTML = "Failed to retrieve article, please try a different one (Live News does not work)"
       });
   
 }
