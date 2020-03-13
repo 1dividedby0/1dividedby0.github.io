@@ -86,7 +86,7 @@ ul {
 #eval {
     left: 71%;
     width: 80px;
-    line-height: 16px;
+    height: 16px;
     margin-top: -100px;
     position: absolute;
     text-align: center;
