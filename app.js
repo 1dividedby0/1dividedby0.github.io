@@ -8,6 +8,7 @@ var apigClient = apigClientFactory.newClient();
 
 function submitMe() {
   var selectElement = document.getElementById('date');
+  selectElement.innerHTML = "";
   var sentence1 = document.getElementById('sentence1');
   var sentence2 = document.getElementById('sentence2');
   var sentence3 = document.getElementById('sentence3');
@@ -45,13 +46,13 @@ function submitMe() {
         raw = 1/(1+Math.pow(Math.E, 0-raw)) * 100
         raw = Math.round(raw)
         selectElement.innerHTML = "Article Subjectivity: " + raw.toString() + "/100"
-        sentence1.innerHTML = data.split("$$$")[1].split(".")[0]
-        sentence2.innerHTML = data.split("$$$")[1].split(".")[1]
-        sentence3.innerHTML = data.split("$$$")[1].split(".")[2]
-        sentence4.innerHTML = data.split("$$$")[1].split(".")[3]
+        // sentence1.innerHTML = data.split("$$$")[1].split(".")[0]
+        // sentence2.innerHTML = data.split("$$$")[1].split(".")[1]
+        // sentence3.innerHTML = data.split("$$$")[1].split(".")[2]
+        // sentence4.innerHTML = data.split("$$$")[1].split(".")[3]
       }).catch( function(result){
         console.log(result)
-        selectElement.innerHTML = "Failed to retrieve article, please try a different one (Live News does not work)"
+        selectElement.innerHTML = "Failed to retrieve article, please try a different one."
       });
   
 }

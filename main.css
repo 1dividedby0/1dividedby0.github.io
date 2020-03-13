@@ -14,12 +14,92 @@ ul {
 }
 
 #date {
-    font-size: 28px;
-    font-style: italic;
-    font-weight: bold;
+    font-size: 40px;
+    /* font-style: italic; */
+    /* font-weight: bold; */
+    left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 47%;
+    width: 100%;
+}
+
+#title {
+    font-family: "Georgia";
+    font-size: 60px;
+    left: 0;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 25%;
+    width: 100%;
+}
+
+#mostsubj {
+    left: 37%;
+    /* line-height: 200px; */
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 65%;
+}
+
+#sentence1 {
+    left: 30%;
+    /* line-height: 200px; */
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 70%;
+}
+
+#sentence2 {
+    left: 30%;
+    /* line-height: 200px; */
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 73%;
+}
+
+#sentence3 {
+    left: 30%;
+    /* line-height: 200px; */
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 76%;
+}
+
+#sentence4 {
+    left: 30%;
+    /* line-height: 200px; */
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 79%;
+}
+
+#eval {
+    left: 71%;
+    width: 80px;
+    line-height: 16px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 46%;
 }
 
 #textfield {
-    width:800px;
+    width:40%;
+    left: 30%;
+    line-height: 35px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 45%;
 }
 
