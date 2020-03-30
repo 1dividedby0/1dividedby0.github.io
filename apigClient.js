@@ -53,7 +53,8 @@ apigClientFactory.newClient = function (config) {
 
     
     // extract endpoint and path from url
-    var invokeUrl = 'https://xyhfsy0l79.execute-api.us-east-1.amazonaws.com/prod';
+    // var invokeUrl = 'https://xyhfsy0l79.execute-api.us-east-1.amazonaws.com/prod';
+    var invokeUrl = 'https://00qn0rkb43.execute-api.us-east-1.amazonaws.com/prod/';
     var endpoint = /(^https?:\/\/[^\/]+)/g.exec(invokeUrl)[1];
     var pathComponent = invokeUrl.substring(endpoint.length);
 
@@ -90,7 +91,7 @@ apigClientFactory.newClient = function (config) {
         
         var classifyGetRequest = {
             verb: 'get'.toUpperCase(),
-            path: pathComponent + uritemplate('/classify').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            path: pathComponent + uritemplate('/search').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
             queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
             body: body

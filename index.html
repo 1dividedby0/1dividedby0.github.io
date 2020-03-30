@@ -19,16 +19,25 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <h1 id="title">BLUFFNet</h1>
-    <!-- <p id="notice">:</p> -->
-    <input type="text" placeholder="Enter a link to an article (only works with CNN articles at the moment)" id="textfield" value="" />
-    <br/>
-    <button id="eval" onclick="submitMe()" id="testButton" >Evaluate</button>
+    <h1 id="title">BLUFFNet: for Objective News</h1>
+    <!-- <input type="text" placeholder="Enter a link to an article (only works with CNN articles at the moment)" id="textfield" value="" /> -->
+    <!-- <br/> -->
+    <!-- <button id="eval" onclick="submitMe()">Evaluate</button> -->
     <p id="date"></p>
     <p id='mostsubj'></p>
-    <!-- <p id="sentence1"></p>
-    <p id="sentence2"></p>
-    <p id="sentence3"></p>
-    <p id="sentence4"></p> -->
+    <input type="text" placeholder="What's new?" id="textfield" value="" />
+    <script>
+      var input = document.getElementById("textfield");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("eval").click();
+        }
+      });
+    </script>
+    <br/>
+    <button id="eval" onclick="search()">Search!</button>
+    <div id="container"></div>
+    <div id="container_subj"></div>
   </body>
 </html>

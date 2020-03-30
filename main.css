@@ -13,8 +13,31 @@ ul {
     font-family: monospace;
 }
 
+#container {
+    left: 100;
+    line-height: 50px;
+    font-size: 18px;
+    margin-top: -40px;
+    position: absolute;
+    /* text-align: center; */
+    top: 47%;
+    width: 100%;
+}
+
+#container_obj {
+    left: 400;
+    line-height: 50px;
+    font-size: 22px;
+    margin-top: -40px;
+    position: absolute;
+    /* text-align: center; */
+    top: 47%;
+    width: 100%;
+}
+
 #date {
-    font-size: 40px;
+    /* font-size: 40px; */
+    font-size:12px;
     /* font-style: italic; */
     /* font-weight: bold; */
     left: 0;
