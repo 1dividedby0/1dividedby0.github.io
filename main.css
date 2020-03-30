@@ -108,8 +108,8 @@ ul {
 
 #eval {
     left: 71%;
-    width: 80px;
-    height: 16px;
+    /* width: 80px;
+    height: 16px; */
     margin-top: -100px;
     position: absolute;
     text-align: center;
@@ -124,5 +124,19 @@ ul {
     position: absolute;
     text-align: center;
     top: 45%;
+}
+
+#subjcheckboxcontainer {
+    width:40%;
+    left: 30%;
+    height: 27px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 45%;
+}
+
+#objcheckboxcontainer {
+
 }
 

@@ -37,6 +37,30 @@
     </script>
     <br/>
     <button id="eval" onclick="search()">Search!</button>
+
+    <div style="position: absolute; left: 2%; top: 36%;">
+        <label class="left">Include Biased Articles</label>
+        <input type="checkbox" id="subjcheckbox"/>
+    </div>
+
+    <div style="position: absolute; left: 12%; top: 36%;">
+        <label class="left">Include Unbiased Articles</label>
+        <input type="checkbox" id="objcheckbox"/>
+    </div>
+
+    <script>
+      subjcheckbox = document.getElementById('subjcheckbox');
+      objcheckbox = document.getElementById('objcheckbox');
+
+      subjcheckbox.addEventListener('change', e => {
+        updateTable()
+      });
+
+      objcheckbox.addEventListener('change', e => {
+        updateTable()
+      });
+    </script>
+
     <div id="container"></div>
     <div id="container_subj"></div>
   </body>

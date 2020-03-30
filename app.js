@@ -5,11 +5,55 @@ var apigClient = apigClientFactory.newClient();
 // Http.onreadystatechange = (e) => {
 //   selectElement.innerHTML = Http.responseText
 // }
+var objective = [];
+var subjective = [];
+
+function updateTable() {
+  var subjcheck = document.getElementById('subjcheckbox').checked;
+  var objcheck = document.getElementById('objcheckbox').checked;
+  if(objective.length == 0 && subjective.length == 0) {
+    return;
+  }
+  var arr = [];
+  if(subjcheck && objcheck) {
+    arr = objective.concat(subjective);
+  } else if (!subjcheck && objcheck) {
+    arr = objective;
+  } else if (subjcheck && !objcheck) {
+    arr = subjective;
+  }
+
+  var selectElement = document.getElementById('date');
+  var html = "<table><tr>";
+
+  // Loop through array and add table cells
+  for (var i=0; i<arr.length; i++) {
+    var factors = arr[i].split("&&&")
+    var link = factors[0]
+    var title = factors[1]
+    var rating = factors[2]
+    var blank = "target=\"_blank\"";
+    var addition = "<td height=\"25\"><a href=\"" + link + "\" " + blank + ">" + title + " — Bias Level: " + Math.round(rating * 100) + "/100</a></td>";
+    if(addition.includes("NaN")) {
+      continue;
+    }
+    html += addition;
+    // Break into next row
+    var next = i+1;
+    if (next!=arr.length) {
+      html += "</tr><tr>";
+    }
+  }
+  html += "</tr></table>";
+
+  document.getElementById("container").innerHTML = html;
+}
 
 function search() {
   var selectElement = document.getElementById('date');
+  
   selectElement.innerHTML = "Loading...";
-  var query = document.getElementById('textfield').value;
+  var query = document.getElementById('textfield').value.toLowerCase();
   var params = {
     // This is where any modeled request parameters should be added.
     // The key is the parameter name, as it is defined in the API in API Gateway.
@@ -38,8 +82,8 @@ function search() {
         selectElement.innerHTML = ""
         var data = JSON.stringify(result['data'])
         data = data.replace("\"", "").split(";;;")
-        var objective = data[0].split("!")
-        var subjective = data[1].split("!")
+        objective = data[0].split("!")
+        subjective = data[1].split("!")
         if (objective.length <= 1 && subjective.length > 1) {
           document.getElementById("container").innerHTML = "<p>No unbiased results found.</p>";
           return;
@@ -48,49 +92,8 @@ function search() {
           return;
         }
         console.log(data)
-        var html = "<table><tr>";
-
-        // Loop through array and add table cells
-        for (var i=0; i<objective.length; i++) {
-          var factors = objective[i].split("&&&")
-          var link = factors[0]
-          var title = factors[1]
-          var rating = factors[2]
-          var blank = "target=\"_blank\"";
-          html += "<td height=\"25\"><a href=\"" + link + "\" " + blank + ">" + title + " — Bias Level: " + Math.round(rating * 100) + "/100</a></td>";
-          // Break into next row
-          var next = i+1;
-          if (next!=objective.length) {
-            html += "</tr><tr>";
-          }
-        }
-        html += "</tr></table>";
-
-        document.getElementById("container").innerHTML = html;
-
-        var subjhtml = "<table><tr>";
-
-        // Loop through array and add table cells
-        for (var i=0; i<subjective.length; i++) {
-          var factors = subjective[i].split("&&&")
-          var link = factors[0]
-          var title = factors[1]
-          var rating = factors[2]
-          var blank = "target=\"_blank\"";
-          subjhtml += "<td height=\"25\"><a href=\"" + link + "\" " + blank + ">" + title + " - Bias Level: " + Math.round(rating * 100) + "/100</a></td>";
-          // Break into next row
-          var next = i+1;
-          if (next!=subjective.length) {
-            subjhtml += "</tr><tr>";
-          }
-        }
-        subjhtml += "</tr></table>";
-
-        // document.getElementById("container_subj").innerHTML = subjhtml;
-        // sentence1.innerHTML = data.split("$$$")[1].split(".")[0]
-        // sentence2.innerHTML = data.split("$$$")[1].split(".")[1]
-        // sentence3.innerHTML = data.split("$$$")[1].split(".")[2]
-        // sentence4.innerHTML = data.split("$$$")[1].split(".")[3]
+        updateTable()
+        
       }).catch( function(result){
         console.log(result)
         selectElement.innerHTML = "Failed to search query. Please try a different one."
