@@ -57,7 +57,7 @@ function search() {
           var title = factors[1]
           var rating = factors[2]
           var blank = "target=\"_blank\"";
-          html += "<td height=\"25\"><a href=\"" + link + "\" " + blank + ">" + title + " — Subjectivity: " + Math.round(rating * 100) + "</a></td>";
+          html += "<td height=\"25\"><a href=\"" + link + "\" " + blank + ">" + title + " — Bias Level: " + Math.round(rating * 100) + "/100</a></td>";
           // Break into next row
           var next = i+1;
           if (next!=objective.length) {
@@ -77,7 +77,7 @@ function search() {
           var title = factors[1]
           var rating = factors[2]
           var blank = "target=\"_blank\"";
-          subjhtml += "<td height=\"25\"><a href=\"" + link + "\" " + blank + ">" + title + " - Subjectivity: " + Math.round(rating * 100) + "</a></td>";
+          subjhtml += "<td height=\"25\"><a href=\"" + link + "\" " + blank + ">" + title + " - Bias Level: " + Math.round(rating * 100) + "/100</a></td>";
           // Break into next row
           var next = i+1;
           if (next!=subjective.length) {
